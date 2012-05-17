@@ -1,0 +1,13 @@
+This is a small project that intends to implement basic versions of some core data structures. Basically the point is to cover common interview questions.
+
+Here's what I intend to cover:
+
+* Linked lists
+ - Double vs single
+ - Circular vs linear
+ - basic operations: insert into, delete from, reverse
+* Binary trees
+ - basic operations: inserting, deleting
+ - traversing: inorder, preorder, postorder (recursive and stack-based)
+ - balancing
+* Hash tables
