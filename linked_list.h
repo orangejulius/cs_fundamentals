@@ -25,7 +25,7 @@ singly_linked_list *init_singly_linked_list(void *data)
 }
 
 /*
- * Given a pointer to an item in a linked list (presumably the head), and a new list entry
+ * Given a pointer to an item in a linked list (presumably the head) and a new list entry
  * insert the new entry at the end of the list
  * O(N) complexity!
  */
@@ -59,6 +59,7 @@ void insert_after_singly_linked_list(singly_linked_list *entry, singly_linked_li
 /*
  * Given a pointer to an item in a linked list (presumably the head),
  * Print that entry and all following entries
+ * O(N) complexity
  */
 void print_singly_linked_list(singly_linked_list *head) {
 	if (head == 0) {
@@ -77,6 +78,7 @@ void print_singly_linked_list(singly_linked_list *head) {
 /*
  * Given a pointer to the head entry, reverse the order of items in a linked list
  * Does not use recursion
+ * O(N) complexity
  */
 singly_linked_list *reverse_singly_linked_list(singly_linked_list *head)
 {
