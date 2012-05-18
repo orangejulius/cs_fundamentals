@@ -51,4 +51,25 @@ void print_singly_linked_list(singly_linked_list *head) {
 		i++;
 	} while (list = list->next); // loop continues if list is not 0
 }
+
+/*
+ * Given a pointer to the head entry, reverse the order of items in a linked list
+ * Does not use recursion
+ */
+singly_linked_list *reverse_singly_linked_list(singly_linked_list *head)
+{
+	singly_linked_list *entry = head;
+	singly_linked_list *temp;
+	singly_linked_list *previous = 0;
+
+	while (entry != 0) {
+		temp = entry->next;
+		entry->next = previous;
+		previous = entry;
+		entry = temp;
+	}
+
+	return previous;
+}
+
 #endif // LINKED_LIST_H
