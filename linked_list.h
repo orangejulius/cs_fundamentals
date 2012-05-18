@@ -24,6 +24,11 @@ singly_linked_list *init_singly_linked_list(void *data)
 	return list;
 }
 
+/*
+ * Given a pointer to an item in a linked list (presumably the head), and a new list entry
+ * insert the new entry at the end of the list
+ * O(N) complexity!
+ */
 void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new_item)
 {
 	singly_linked_list *list = head;
@@ -38,6 +43,10 @@ void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new
 	new_item->next = 0; //just in case
 }
 
+/*
+ * Given a pointer to an item in a linked list (presumably the head),
+ * Print that entry and all following entries
+ */
 void print_singly_linked_list(singly_linked_list *head) {
 	if (head == 0) {
 		return;
