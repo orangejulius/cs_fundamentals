@@ -12,9 +12,11 @@ int main()
 
 	//insert the rest of the data into the list
 	int i;
+	singly_linked_list *entry = head; //keep track of the last entry so insert_after can be used
 	for (i = 1; i < 10; i++) {
 		singly_linked_list *new_item = init_singly_linked_list(&data[i]);
-		insert_singly_linked_list(head, new_item);
+		insert_after_singly_linked_list(entry, new_item);
+		entry = new_item;
 	}
 
 	print_singly_linked_list(head);
