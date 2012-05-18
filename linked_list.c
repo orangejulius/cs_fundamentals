@@ -18,4 +18,8 @@ int main()
 	}
 
 	print_singly_linked_list(head);
+
+	head = reverse_singly_linked_list(head);
+
+	print_singly_linked_list(head);
 }
