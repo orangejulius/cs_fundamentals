@@ -44,6 +44,19 @@ void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new
 }
 
 /*
+ * Given a pointer to an entry in a linked list and a new list entry,
+ * insert the new entry immediately after the existing one
+ * O(1) complexity
+ */
+void insert_after_singly_linked_list(singly_linked_list *entry, singly_linked_list *new)
+{
+	singly_linked_list *next = entry->next;
+
+	entry->next = new;
+	new->next = next;
+}
+
+/*
  * Given a pointer to an item in a linked list (presumably the head),
  * Print that entry and all following entries
  */
