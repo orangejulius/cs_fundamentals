@@ -21,5 +21,7 @@ int main()
 
 	head = reverse_singly_linked_list(head);
 
+	printf("\nReversing the list!\n");
+
 	print_singly_linked_list(head);
 }
