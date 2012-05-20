@@ -16,6 +16,15 @@ int main()
 		insert_tree_node_recursive(root, new);
 	}
 
+	printf("in order:\n");
 	print_tree_inorder_recursive(root);
+	printf("\n");
+
+	printf("pre-order:\n");
+	print_tree_preorder_recursive(root);
+	printf("\n");
+
+	printf("post-order:\n");
+	print_tree_postorder_recursive(root);
 	printf("\n");
 }
