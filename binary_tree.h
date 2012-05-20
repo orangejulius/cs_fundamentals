@@ -67,4 +67,34 @@ void print_tree_inorder_recursive(tree_node *root)
 	print_tree_inorder_recursive(root->right);
 }
 
+/*
+ * Given a root node, print all items in the tree using a preorder traversal.
+ * Uses recursive function calls
+ * All items are printed on a single line with no newline at the end
+ */
+void print_tree_preorder_recursive(tree_node *root)
+{
+	if (!root) {
+		return;
+	}
+	printf("%d, ", root->data);
+	print_tree_inorder_recursive(root->left);
+	print_tree_inorder_recursive(root->right);
+}
+
+/*
+ * Given a root node, print all items in the tree using a postorder traversal.
+ * Uses recursive function calls
+ * All items are printed on a single line with no newline at the end
+ */
+void print_tree_postorder_recursive(tree_node *root)
+{
+	if (!root) {
+		return;
+	}
+	print_tree_inorder_recursive(root->left);
+	print_tree_inorder_recursive(root->right);
+	printf("%d, ", root->data);
+}
+
 #endif // BINARY_TREE_H
