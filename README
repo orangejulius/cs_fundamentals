@@ -11,3 +11,6 @@ Here's what I intend to cover:
  - traversing: inorder, preorder, postorder (recursive and stack-based)
  - balancing
 * Hash tables
+* Sorting algorithms
+ - insertion sort
+ - quicksort
