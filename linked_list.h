@@ -31,15 +31,15 @@ singly_linked_list *init_singly_linked_list(void *data)
  */
 void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new_item)
 {
-	singly_linked_list *list = head;
+	singly_linked_list *node = head;
 
 	//traverse the length of the list
-	while (list->next != 0) {
-		list = list->next;
+	while (node->next != 0) {
+		node = node->next;
 	}
 
 	//insert the new item into the list
-	list->next = new_item;
+	node->next = new_item;
 	new_item->next = 0; //just in case
 }
 
@@ -66,13 +66,13 @@ void print_singly_linked_list(singly_linked_list *head) {
 		return;
 	}
 
-	singly_linked_list *list = head;
+	singly_linked_list *node = head;
 	int i = 0;
 
 	do {
-		printf("%d: address: %p data: %d\n", i, list, *(int *)(list->data));
+		printf("%d: address: %p data: %d\n", i, node, *(int *)(node->data));
 		i++;
-	} while (list = list->next); // loop continues if list is not 0
+	} while (node = node->next); // loop continues if list is not 0
 }
 
 /*
