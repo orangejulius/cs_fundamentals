@@ -57,8 +57,9 @@ void insert_after_singly_linked_list(singly_linked_list *entry, singly_linked_li
 }
 
 /*
- * Given a pointer to an item in a linked list (presumably the head),
- * Print that entry and all following entries
+ * Given a pointer to a linked list node,
+ * Print that node and all children node's data
+ * Assumes the data can be casted to an integer
  * O(N) complexity
  */
 void print_singly_linked_list(singly_linked_list *head) {
