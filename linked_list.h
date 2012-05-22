@@ -185,9 +185,11 @@ void print_singly_linked_list_node(singly_linked_list_node *head) {
 /*
  * Given a pointer to the head entry, reverse the order of items in a linked list
  * Does not use recursion
+ * Use reverse_singly_linked_list if using a singly_linked_list struct,
+ * otherwise the list->tail pointer will be invalid after calling this function
  * O(N) complexity
  */
-singly_linked_list_node *reverse_singly_linked_list(singly_linked_list_node *head)
+singly_linked_list_node *reverse_singly_linked_list_nodes(singly_linked_list_node *head)
 {
 	singly_linked_list_node *entry = head;
 	singly_linked_list_node *temp;
@@ -201,6 +203,16 @@ singly_linked_list_node *reverse_singly_linked_list(singly_linked_list_node *hea
 	}
 
 	return previous;
+}
+
+/*
+ * Reverse the order of elements in a list pointed to by a singly_linked_list struct
+ * O(N) complexity
+ */
+void reverse_singly_linked_list(singly_linked_list *list)
+{
+	list->tail = list->head;
+	list->head = reverse_singly_linked_list_nodes(list->head);
 }
 
 #endif // LINKED_LIST_H
