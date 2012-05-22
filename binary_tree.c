@@ -19,12 +19,18 @@ int main()
 	printf("in order:\n");
 	print_tree_inorder_recursive(root);
 	printf("\n");
+	print_tree_inorder(root);
+	printf("\n");
 
 	printf("pre-order:\n");
 	print_tree_preorder_recursive(root);
 	printf("\n");
+	print_tree_preorder(root);
+	printf("\n");
 
 	printf("post-order:\n");
 	print_tree_postorder_recursive(root);
+	printf("\n");
+	print_tree_postorder(root);
 	printf("\n");
 }
