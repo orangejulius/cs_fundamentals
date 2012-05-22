@@ -113,6 +113,56 @@ void insert_tail_singly_linked_list(singly_linked_list *list, singly_linked_list
 }
 
 /*
+ * Return the current head node and update the list pointers to remove the current head
+ * from the list.
+ * Does not touch the next pointer of the returned node.
+ * Does not handle memory, caller should decide whether or not to call free()
+ * O(1) complexity.
+ */
+singly_linked_list_node *delete_head_singly_linked_list(singly_linked_list *list)
+{
+	singly_linked_list_node *node = 0;
+	if (list->head) {
+		node = list->head;
+		//if the node about to be removed is also the tail node
+		//the list will now be empty, so update the tail node accordingly
+		if (list->head == list->tail) {
+			list->tail = 0;
+		}
+		list->head = list->head->next;
+	}
+
+	return node;
+}
+
+/*
+ * Return the current tail node and update the list to remove the current tail.
+ * Does not handle memory, caller should decide whether or not to call free()
+ * O(N) complexity! If this has to be used a doubly linked list is probably a better choice.
+ */
+singly_linked_list_node *delete_tail_singly_linked_list(singly_linked_list *list)
+{
+	//check if list is empty
+	if (list->head == 0) {
+		return 0;
+	}
+	singly_linked_list_node *node = list->head;
+
+	//move through the list to the second to last element
+	while (node->next != list->tail) {
+		node = node->next;
+	}
+
+	//once done update the second to last element to point to nothing (it is now the last)
+	node->next = 0;
+
+	//store the element to be returned in a temporary variable, update the tail pointer
+	singly_linked_list_node *tmp = list->tail;
+	list->tail = node;
+	return tmp;
+}
+
+/*
  * Given a pointer to a linked list node,
  * Print that node and all children node's data
  * Assumes the data can be casted to an integer
