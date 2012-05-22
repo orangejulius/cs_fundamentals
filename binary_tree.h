@@ -157,18 +157,12 @@ void print_tree_postorder(tree_node *node)
 				push_stack(stack, node->left);
 			} else if (node->right) {
 				push_stack(stack, node->right);
-			} else {
-				printf("%d, ", node->data);
-				pop_stack(stack);
 			}
 		} else if (node->left == prev) {
 			if (node->right) {
 				push_stack(stack, node->right);
-			} else {
-				printf("%d, ", node->data);
-				pop_stack(stack);
 			}
-		} else if (node->right == prev) {
+		} else {
 			printf("%d, ", node->data);
 			pop_stack(stack);
 		}
