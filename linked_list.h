@@ -6,6 +6,10 @@
 struct singly_linked_list_node;
 struct singly_linked_list;
 
+/*
+ * A single node in a singly linked list.
+ * Can be used independently for flexibility or as part of a singly_linked_list struct.
+ */
 typedef struct singly_linked_list_node
 {
 	void *data;
