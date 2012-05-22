@@ -1,4 +1,5 @@
 binary_tree
 linked_list
+stack
 *.o
 *.swp
