@@ -3,20 +3,20 @@
 
 #include <stdlib.h>
 
-struct singly_linked_list;
+struct singly_linked_list_node;
 
-typedef struct singly_linked_list
+typedef struct singly_linked_list_node
 {
 	void *data;
-	struct singly_linked_list *next;
-} singly_linked_list;
+	struct singly_linked_list_node *next;
+} singly_linked_list_node;
 
 /*
- * Create a new singly_linked_list and initialize it with some data
+ * Create a new singly_linked_list_node and initialize it with some data
  */
-singly_linked_list *init_singly_linked_list(void *data)
+singly_linked_list_node *init_singly_linked_list_node(void *data)
 {
-	singly_linked_list *list = malloc(sizeof(singly_linked_list));
+	singly_linked_list_node *list = malloc(sizeof(singly_linked_list_node));
 
 	list->data = data;
 	list->next = 0;
@@ -29,9 +29,9 @@ singly_linked_list *init_singly_linked_list(void *data)
  * insert the new entry at the end of the list
  * O(N) complexity!
  */
-void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new_item)
+void insert_singly_linked_list_node(singly_linked_list_node *head, singly_linked_list_node *new_item)
 {
-	singly_linked_list *node = head;
+	singly_linked_list_node *node = head;
 
 	//traverse the length of the list
 	while (node->next != 0) {
@@ -48,9 +48,9 @@ void insert_singly_linked_list(singly_linked_list *head, singly_linked_list *new
  * insert the new entry immediately after the existing one
  * O(1) complexity
  */
-void insert_after_singly_linked_list(singly_linked_list *entry, singly_linked_list *new)
+void insert_after_singly_linked_list_node(singly_linked_list_node *entry, singly_linked_list_node *new)
 {
-	singly_linked_list *next = entry->next;
+	singly_linked_list_node *next = entry->next;
 
 	entry->next = new;
 	new->next = next;
@@ -62,12 +62,12 @@ void insert_after_singly_linked_list(singly_linked_list *entry, singly_linked_li
  * Assumes the data can be casted to an integer
  * O(N) complexity
  */
-void print_singly_linked_list(singly_linked_list *head) {
+void print_singly_linked_list_node(singly_linked_list_node *head) {
 	if (head == 0) {
 		return;
 	}
 
-	singly_linked_list *node = head;
+	singly_linked_list_node *node = head;
 	int i = 0;
 
 	do {
@@ -81,11 +81,11 @@ void print_singly_linked_list(singly_linked_list *head) {
  * Does not use recursion
  * O(N) complexity
  */
-singly_linked_list *reverse_singly_linked_list(singly_linked_list *head)
+singly_linked_list_node *reverse_singly_linked_list(singly_linked_list_node *head)
 {
-	singly_linked_list *entry = head;
-	singly_linked_list *temp;
-	singly_linked_list *previous = 0;
+	singly_linked_list_node *entry = head;
+	singly_linked_list_node *temp;
+	singly_linked_list_node *previous = 0;
 
 	while (entry != 0) {
 		temp = entry->next;
