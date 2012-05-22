@@ -18,9 +18,16 @@ int main()
 
 	print_singly_linked_list_node(list->head);
 
-	list->head = reverse_singly_linked_list(list->head);
-
 	printf("\nReversing the list!\n");
+	reverse_singly_linked_list(list);
 
+	print_singly_linked_list_node(list->head);
+
+	printf("\nRemoving the first element\n");
+	delete_head_singly_linked_list(list);
+	print_singly_linked_list_node(list->head);
+
+	printf("\nRemoving the last element\n");
+	delete_tail_singly_linked_list(list);
 	print_singly_linked_list_node(list->head);
 }
