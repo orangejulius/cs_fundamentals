@@ -16,12 +16,12 @@ typedef struct singly_linked_list_node
  */
 singly_linked_list_node *init_singly_linked_list_node(void *data)
 {
-	singly_linked_list_node *list = malloc(sizeof(singly_linked_list_node));
+	singly_linked_list_node *node = malloc(sizeof(singly_linked_list_node));
 
-	list->data = data;
-	list->next = 0;
+	node->data = data;
+	node->next = 0;
 
-	return list;
+	return node;
 }
 
 /*
