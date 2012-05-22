@@ -4,12 +4,23 @@
 #include <stdlib.h>
 
 struct singly_linked_list_node;
+struct singly_linked_list;
 
 typedef struct singly_linked_list_node
 {
 	void *data;
 	struct singly_linked_list_node *next;
 } singly_linked_list_node;
+
+/*
+ * Struct representing an entire list.
+ * Can be passed to helper functions to make certain actions easier.
+ */
+typedef struct singly_linked_list
+{
+	singly_linked_list_node *head;
+	singly_linked_list_node *tail;
+} singly_linked_list;
 
 /*
  * Create a new singly_linked_list_node and initialize it with some data
@@ -22,6 +33,17 @@ singly_linked_list_node *init_singly_linked_list_node(void *data)
 	node->next = 0;
 
 	return node;
+}
+
+/*
+ * Create and initialize a new, empty singly linked list struct
+ */
+singly_linked_list *init_singly_linked_list()
+{
+	singly_linked_list *list = malloc(sizeof(singly_linked_list));
+
+	list->head = 0;
+	list->tail = 0;
 }
 
 /*
