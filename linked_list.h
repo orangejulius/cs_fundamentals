@@ -83,6 +83,36 @@ void insert_after_singly_linked_list_node(singly_linked_list_node *entry, singly
 }
 
 /*
+ * Add a new linked list node to the beginning of a given linked list
+ */
+void insert_head_singly_linked_list(singly_linked_list *list, singly_linked_list_node *new)
+{
+	new->next = list->head;
+
+	list->head = new;
+
+	if (list->tail == 0) {
+		list->tail = list->head;
+	}
+}
+
+/*
+ * Add a new linked list node to the end of a given linked list
+ */
+void insert_tail_singly_linked_list(singly_linked_list *list, singly_linked_list_node *new)
+{
+	if (list->tail) {
+		list->tail->next = new;
+	}
+
+	list->tail = new;
+
+	if (list->head == 0) {
+		list->head = list->tail;
+	}
+}
+
+/*
  * Given a pointer to a linked list node,
  * Print that node and all children node's data
  * Assumes the data can be casted to an integer
