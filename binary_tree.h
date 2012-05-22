@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 
+#include "stack.h"
+
 struct tree_node;
 
 /*
@@ -95,6 +97,83 @@ void print_tree_postorder_recursive(tree_node *root)
 	print_tree_postorder_recursive(root->left);
 	print_tree_postorder_recursive(root->right);
 	printf("%d, ", root->data);
+}
+
+/*
+ * Given a binary tree node, print it and its children using an inorder traversal.
+ * Does not use recursive function calls
+ * All items are printed on a single line with no newline at the end
+ */
+void print_tree_inorder(tree_node *node)
+{
+	stack *stack = init_stack();
+	while (node != 0 || peek_stack(stack)) {
+		if (node != 0) {
+			push_stack(stack, node);
+			node = node->left;
+		} else {
+			node = pop_stack(stack);
+			printf("%d, ", node->data);
+			node = node->right;
+		}
+	}
+}
+
+/*
+ * Given a binary tree node, print it and its children using a preorder traversal.
+ * Does not use recursive function calls
+ * All items are printed on a single line with no newline at the end
+ */
+void print_tree_preorder(tree_node *node)
+{
+	stack *stack = init_stack();
+	push_stack(stack, node);
+	while (peek_stack(stack)) {
+		node = pop_stack(stack);
+		printf("%d, ", node->data);
+		if (node->right) {
+			push_stack(stack, node->right);
+		}
+		if (node->left) {
+			push_stack(stack, node->left);
+		}
+	}
+}
+
+/*
+ * Given a binary tree node, print it and its children using a postorder traversal.
+ * Does not use recursive function calls
+ * All items are printed on a single line with no newline at the end
+ */
+void print_tree_postorder(tree_node *node)
+{
+	stack *stack = init_stack();
+	push_stack(stack, node);
+	tree_node *prev = 0;
+
+	while (node = peek_stack(stack)) {
+		if (!prev || prev->left == node || prev->right == node) {
+			if (node->left) {
+				push_stack(stack, node->left);
+			} else if (node->right) {
+				push_stack(stack, node->right);
+			} else {
+				printf("%d, ", node->data);
+				pop_stack(stack);
+			}
+		} else if (node->left == prev) {
+			if (node->right) {
+				push_stack(stack, node->right);
+			} else {
+				printf("%d, ", node->data);
+				pop_stack(stack);
+			}
+		} else if (node->right == prev) {
+			printf("%d, ", node->data);
+			pop_stack(stack);
+		}
+		prev = node;
+	}
 }
 
 #endif // BINARY_TREE_H
