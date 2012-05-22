@@ -2,6 +2,7 @@
 #define LINKED_LIST_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 struct singly_linked_list_node;
 struct singly_linked_list;
