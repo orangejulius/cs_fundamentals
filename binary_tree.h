@@ -78,8 +78,8 @@ void print_tree_preorder_recursive(tree_node *root)
 		return;
 	}
 	printf("%d, ", root->data);
-	print_tree_inorder_recursive(root->left);
-	print_tree_inorder_recursive(root->right);
+	print_tree_preorder_recursive(root->left);
+	print_tree_preorder_recursive(root->right);
 }
 
 /*
@@ -92,8 +92,8 @@ void print_tree_postorder_recursive(tree_node *root)
 	if (!root) {
 		return;
 	}
-	print_tree_inorder_recursive(root->left);
-	print_tree_inorder_recursive(root->right);
+	print_tree_postorder_recursive(root->left);
+	print_tree_postorder_recursive(root->right);
 	printf("%d, ", root->data);
 }
 
