@@ -17,4 +17,22 @@ queue_mt *init_queue_mt()
 
 	return queue;
 }
+
+void enqueue(queue_mt *queue, void* data)
+{
+	singly_linked_list_node *node = init_singly_linked_list_node(data);
+
+	node->data = data;
+
+	queue->head = queue->tail = node;
+}
+
+void* dequeue(queue_mt *queue)
+{
+	void* data = queue->head->data;
+
+	queue->head = queue->tail = 0;
+
+	return data;
+}
 #endif // QUEUE_MT_H
