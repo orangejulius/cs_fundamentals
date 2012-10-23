@@ -1,5 +1,8 @@
 binary_tree
 linked_list
 stack
+queue_mt
 *.o
 *.swp
+*.un~
+*.dSYM
