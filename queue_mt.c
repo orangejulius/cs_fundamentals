@@ -10,4 +10,10 @@ int main()
 
 	assert(queue->head == 0);
 	assert(queue->tail == 0);
+
+	int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+
+	enqueue(queue, &data[0]);
+
+	assert(queue->head == queue->tail && queue-> head != 0);
 }
