@@ -13,7 +13,7 @@ int main()
 	int i;
 	for (i = 1; i < 10; i++) {
 		tree_node *new = init_tree_node(data[i]);
-		insert_tree_node_recursive(root, new);
+		insert_tree_node(root, new);
 	}
 
 	printf("in order:\n");
