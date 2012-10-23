@@ -34,6 +34,31 @@ tree_node *init_tree_node(int data)
 /*
  * Given a root node and a new node, insert the new node into the correct
  * place in the tree pointed to by root node
+ * O(log(N)) average complexity
+ */
+void insert_tree_node(tree_node *root, tree_node *new)
+{
+	while(1) {
+		if (new->data > root->data) {
+			if (root->right) {
+				root = root->right;
+			} else {
+				root->right = new;
+				return;
+			}
+		} else {
+			if (root->left) {
+				root = root->left;
+			} else {
+				root->left = new;
+				return;
+			}
+		}
+	}
+}
+/*
+ * Given a root node and a new node, insert the new node into the correct
+ * place in the tree pointed to by root node
  * Uses recursive function calls
  * O(log(N)) average complexity
  */
