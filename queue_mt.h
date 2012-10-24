@@ -36,7 +36,11 @@ void* dequeue(queue_mt *queue)
 {
 	void* data = queue->head->data;
 
-	queue->head = queue->tail = 0;
+	if (queue->head != queue->tail) {
+		queue->head = queue->head->next;
+	} else {
+		queue->head = queue->tail = 0;
+	}
 
 	return data;
 }
