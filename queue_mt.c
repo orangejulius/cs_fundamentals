@@ -26,4 +26,11 @@ int main()
 	assert(returnedData == &data[0]);
 	assert(queue->head == 0);
 	assert(queue->tail == 0);
+
+	//enqueuing two items should set head and tail to nodes
+	//containing the enqueued data
+	enqueue(queue, &data[1]);
+	enqueue(queue, &data[2]);
+	assert(queue->head != 0 && queue->head->data == &data[1]);
+	assert(queue->tail != 0 && queue->tail->data == &data[2]);
 }
