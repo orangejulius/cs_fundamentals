@@ -42,6 +42,10 @@ int main()
 	assert(queue->head->data = &data[2]);
 	dequeue(queue);
 
+	//test dequeueing from an empty queue
+	int *returnedData3 = dequeue(queue);
+	assert(returnedData3 == 0);
+
 	free(queue);
 
 	return 0;
