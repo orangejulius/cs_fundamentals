@@ -33,9 +33,12 @@ void enqueue(queue_mt *queue, void* data)
 void* dequeue(queue_mt *queue)
 {
 	void* data = queue->head->data;
+	singly_linked_list_node* next = queue->head->next;
 
-	if (queue->head != queue->tail) {
-		queue->head = queue->head->next;
+	free(queue->head);
+
+	if (next != 0) {
+		queue->head = next;
 	} else {
 		queue->head = queue->tail = 0;
 	}
