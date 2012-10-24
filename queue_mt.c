@@ -40,4 +40,6 @@ int main()
 	assert(returnedData2 == &data[1]);
 	assert(queue->head == queue->tail && queue->head != 0);
 	assert(queue->head->data = &data[2]);
+
+	free(queue);
 }
