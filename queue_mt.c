@@ -42,4 +42,6 @@ int main()
 	assert(queue->head->data = &data[2]);
 
 	free(queue);
+
+	return 0;
 }
