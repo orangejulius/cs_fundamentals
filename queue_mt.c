@@ -33,4 +33,11 @@ int main()
 	enqueue(queue, &data[2]);
 	assert(queue->head != 0 && queue->head->data == &data[1]);
 	assert(queue->tail != 0 && queue->tail->data == &data[2]);
+
+	//dequeueing the first item should leave head == tail == node for second item
+	//and the item dequeued should be the first item
+	int *returnedData2 = dequeue(queue);
+	assert(returnedData2 == &data[1]);
+	assert(queue->head == queue->tail && queue->head != 0);
+	assert(queue->head->data = &data[2]);
 }
