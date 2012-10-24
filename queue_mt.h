@@ -32,6 +32,10 @@ void enqueue(queue_mt *queue, void* data)
 
 void* dequeue(queue_mt *queue)
 {
+	if (!queue->head) {
+		return 0;
+	}
+
 	void* data = queue->head->data;
 	singly_linked_list_node* next = queue->head->next;
 
