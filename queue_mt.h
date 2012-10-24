@@ -24,7 +24,12 @@ void enqueue(queue_mt *queue, void* data)
 
 	node->data = data;
 
-	queue->head = queue->tail = node;
+	if (queue->head && queue->tail) {
+		queue->tail->next = node;
+		queue->tail = node;
+	} else {
+		queue->head = queue->tail = node;
+	}
 }
 
 void* dequeue(queue_mt *queue)
