@@ -22,8 +22,6 @@ void enqueue(queue_mt *queue, void* data)
 {
 	singly_linked_list_node *node = init_singly_linked_list_node(data);
 
-	node->data = data;
-
 	if (queue->head && queue->tail) {
 		queue->tail->next = node;
 		queue->tail = node;
