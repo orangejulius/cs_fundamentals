@@ -1,6 +1,7 @@
 binary_tree
 linked_list
 stack
+stack_with_min
 queue_mt
 *.o
 *.swp
