@@ -20,4 +20,5 @@ int main()
 	}
 
 	assert(grid_sum((int*)&grid, GRID_X, GRID_Y, 1, 1, 2, 2) == 9);
+	assert(grid_sum_y((int*)&grid, GRID_X, GRID_Y, 1, 1, 2, 2) == 9);
 }
