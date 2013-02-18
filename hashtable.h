@@ -66,7 +66,7 @@ void* hashtable_find(hashtable* ht, char *key)
 		hashtable_item *item = node->data;
 		if (item->key == key)
 			return item->data;
-	} while (node->next);
+	} while (node = node->next);
 
 	return 0;
 }
