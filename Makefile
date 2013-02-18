@@ -1,7 +1,7 @@
 CC=c99
 CFLAGS=-g
-SRC=$(wildcard *.c)
-APPS=$(patsubst %.c,%,$(SRC))
+SRCS=$(wildcard *.c)
+APPS=$(patsubst %.c,%,$(SRCS))
 
 all: ${APPS}
 
