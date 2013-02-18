@@ -49,6 +49,9 @@ singly_linked_list *init_singly_linked_list()
 
 	list->head = 0;
 	list->tail = 0;
+
+	return list;
+
 }
 
 /*
@@ -178,7 +181,7 @@ void print_singly_linked_list_node(singly_linked_list_node *head) {
 	int i = 0;
 
 	do {
-		printf("%d: address: %p data: %d\n", i, node, *(int *)(node->data));
+		printf("%d: address: %p data: %d\n", i, (void*)node, *(int *)(node->data));
 		i++;
 	} while (node = node->next); // loop continues if list is not 0
 }

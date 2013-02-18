@@ -1,15 +1,13 @@
-CFLAGS=-ggdb
-APPS=binary_tree grid linked_list stack stack_with_min
+CFLAGS=-std=c99 -g
+SRCS=$(wildcard *.c)
+APPS=$(patsubst %.c,%,$(SRCS))
+
 all: ${APPS}
-binary_tree: binary_tree.c binary_tree.h
-	gcc ${CFLAGS} binary_tree.c -o binary_tree
-grid: grid.c grid.h
-	gcc ${CFLAGS} grid.c -o grid
-linked_list: linked_list.c linked_list.h
-	gcc ${CFLAGS} linked_list.c -o linked_list
-stack: stack.c stack.h linked_list.h
-	gcc ${CFLAGS} stack.c -o stack
-stack_with_min: stack_with_min.c stack_with_min.h stack.h linked_list.h
-	gcc ${CFLAGS} stack_with_min.c -o stack_with_min
+
 clean:
 	rm ${APPS}
+
+depend:
+	$(CC) $(CFLAGS) -MM $(SRCS) > .depend
+
+include .depend

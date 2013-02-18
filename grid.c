@@ -21,9 +21,8 @@ int main()
 {
 	int grid[GRID_X][GRID_Y];
 
-	int i, j;
-	for (i = 0; i < GRID_X; i++) {
-		for(j = 0; j < GRID_Y; j++) {
+	for (int i = 0; i < GRID_X; i++) {
+		for(int j = 0; j < GRID_Y; j++) {
 			grid[j][i] = i*j;
 			printf("%2d ", i*j);
 		}
@@ -35,8 +34,8 @@ int main()
 
 	int* grid2 = malloc(sizeof(int)*GRID2_X*GRID2_Y);
 
-	for (i = 0; i < GRID2_X; i++) {
-		for(j = 0; j < GRID2_Y; j++) {
+	for (int i = 0; i < GRID2_X; i++) {
+		for(int j = 0; j < GRID2_Y; j++) {
 			grid2[j*GRID2_X + i] = 0;
 		}
 	}

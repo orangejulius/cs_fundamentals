@@ -7,8 +7,7 @@ int main()
 	int data[] = {5, 2, 7, 9, 1};
 	stack_with_min *stack_with_min = init_stack_with_min();
 
-	int i;
-	for (i = 0; i < 5; i++) {
+	for (int i = 0; i < 5; i++) {
 		push_stack_with_min(stack_with_min, data+i);
 	}
 
