@@ -1,3 +1,4 @@
+CC=c99
 CFLAGS=-g
 APPS=binary_tree grid linked_list stack stack_with_min
 all: ${APPS}
