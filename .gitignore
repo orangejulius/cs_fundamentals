@@ -8,3 +8,4 @@ queue_mt
 *.swp
 *.un~
 *.dSYM
+.depend
