@@ -49,6 +49,9 @@ singly_linked_list *init_singly_linked_list()
 
 	list->head = 0;
 	list->tail = 0;
+
+	return list;
+
 }
 
 /*
