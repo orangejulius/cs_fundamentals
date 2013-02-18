@@ -10,8 +10,7 @@ int main()
 	tree_node *root = init_tree_node(data[0]);
 
 	//insert the rest of the data
-	int i;
-	for (i = 1; i < 10; i++) {
+	for (int i = 1; i < 10; i++) {
 		tree_node *new = init_tree_node(data[i]);
 		insert_tree_node(root, new);
 	}

@@ -8,8 +8,7 @@ int main()
 	singly_linked_list *list = init_singly_linked_list();
 
 	//insert the data into the list
-	int i;
-	for (i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) {
 		singly_linked_list_node *new_item = init_singly_linked_list_node(&data[i]);
 		insert_tail_singly_linked_list(list, new_item);
 	}
