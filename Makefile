@@ -1,4 +1,4 @@
-CFLAGS=-ggdb
+CFLAGS=-g
 APPS=binary_tree grid linked_list stack stack_with_min
 all: ${APPS}
 binary_tree: binary_tree.c binary_tree.h
