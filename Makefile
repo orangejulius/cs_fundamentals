@@ -1,5 +1,4 @@
-CC=c99
-CFLAGS=-g
+CFLAGS=-std=c99 -g
 SRCS=$(wildcard *.c)
 APPS=$(patsubst %.c,%,$(SRCS))
 
