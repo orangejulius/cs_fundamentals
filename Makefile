@@ -6,3 +6,8 @@ all: ${APPS}
 
 clean:
 	rm ${APPS}
+
+depend:
+	$(CC) $(CFLAGS) -MM $(SRCS) > .depend
+
+include .depend
