@@ -117,6 +117,14 @@ void insert_tail_singly_linked_list(singly_linked_list *list, singly_linked_list
 }
 
 /*
+ * Add new data to a linked list, handles creating the linked list node
+ */
+void insert_singly_linked_list(singly_linked_list *list, void* data)
+{
+	insert_tail_singly_linked_list(list, init_singly_linked_list_node(data));
+}
+
+/*
  * Return the current head node and update the list pointers to remove the current head
  * from the list.
  * Does not touch the next pointer of the returned node.
