@@ -50,9 +50,7 @@ void hashtable_insert(hashtable *ht, char *key, void *data)
 
 	hashtable_item *item = init_hashtable_item(key, data);
 
-	singly_linked_list_node *node = init_singly_linked_list_node(item);
-
-	insert_tail_singly_linked_list(ht->buckets[bucket], node);
+	insert_singly_linked_list(ht->buckets[bucket], item);
 
 }
 
