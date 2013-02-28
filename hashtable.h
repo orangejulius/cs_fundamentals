@@ -68,13 +68,12 @@ hashtable_item* hashtable_find_item(hashtable* ht, char *key)
 //will update value if it already exists
 void hashtable_insert(hashtable *ht, char *key, void *data)
 {
-	int bucket = ht->hash_fn(key, ht->num_buckets);
-
 	hashtable_item *item;
 	item = hashtable_find_item(ht, key);
 	if (item) {
 		item->data = data;
 	} else {
+		int bucket = ht->hash_fn(key, ht->num_buckets);
 		item = init_hashtable_item(key, data);
 		insert_singly_linked_list(ht->buckets[bucket], item);
 	}
