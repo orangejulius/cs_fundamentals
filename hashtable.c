@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <string.h>
 
 #include "hashtable.h"
 
@@ -23,4 +24,8 @@ int main()
 
 	assert(hashtable_find(ht, "hello") == "world");
 	assert(hashtable_find(ht, "foo") == "bar");
+
+	hashtable_insert(ht, "hello", "world2");
+	char *out = hashtable_find(ht, "hello");
+	assert(strcmp(out, "world2") == 0);
 }
