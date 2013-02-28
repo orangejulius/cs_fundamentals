@@ -26,6 +26,22 @@ int main()
 	assert(hashtable_find(ht, "foo") == "bar");
 
 	hashtable_insert(ht, "hello", "world2");
-	char *out = hashtable_find(ht, "hello");
-	assert(strcmp(out, "world2") == 0);
+	hashtable_find(ht, "hello");
+	assert(strcmp(hashtable_find(ht, "hello"), "world2") == 0);
+
+	char *one, *two, *data;
+	asprintf(&one, "test");
+	asprintf(&two, "test");
+	asprintf(&data, "data");
+	assert(one != two);
+
+	//test hash function returns the same value for identical
+	//strings at different addresses
+	assert(default_hash(one, 20) == default_hash(two, 20));
+	assert(default_hash(one, 20) == default_hash("test", 20));
+
+	//test hash function looks at more than the first 4 bytes
+	char *three;
+	asprintf(&three, "testb");
+	assert(default_hash(one, 20) != default_hash(three, 20));
 }
