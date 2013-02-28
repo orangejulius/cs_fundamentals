@@ -44,4 +44,12 @@ int main()
 	char *three;
 	asprintf(&three, "testb");
 	assert(default_hash(one, 20) != default_hash(three, 20));
+
+	//test inserting and retrieving with indentical strings
+	//at different addresses works
+	hashtable_insert(ht, one, data);
+	char *out = hashtable_find(ht, two);
+	assert(0 != out);
+	assert(out == data);
+	assert(0 == strcmp(out, data));
 }
