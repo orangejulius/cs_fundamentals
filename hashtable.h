@@ -7,7 +7,7 @@
 
 typedef struct hashtable {
 	int num_buckets;
-	int (*hash_fn)(void*);
+	int (*hash_fn)(void*, int);
 	singly_linked_list **buckets;
 } hashtable;
 
@@ -16,8 +16,12 @@ typedef struct hashtable_item {
 	void* data;
 } hashtable_item;
 
-int default_hash(void* data) {
-	return *(int*)data;
+int default_hash(void* data, int num_buckets) {
+	int h = 0, a = 127;
+	for (char* v = data; *v != 0; v++)
+		h = (a * h + *v) % num_buckets;
+
+	return h;
 }
 
 hashtable_item *init_hashtable_item(char* key, void* data)
@@ -30,7 +34,7 @@ hashtable_item *init_hashtable_item(char* key, void* data)
 	return item;
 }
 
-hashtable *hashtable_init(int num_buckets, int (*hash_fn)(void*))
+hashtable *hashtable_init(int num_buckets, int (*hash_fn)(void*, int))
 {
 	hashtable *ht = malloc(sizeof(hashtable));
 	ht->num_buckets = num_buckets;
@@ -47,7 +51,7 @@ hashtable *hashtable_init(int num_buckets, int (*hash_fn)(void*))
 // internal helper functgion to find hashtable_item with given key
 hashtable_item* hashtable_find_item(hashtable* ht, char *key)
 {
-	int bucket = ht->hash_fn(key) % ht->num_buckets;
+	int bucket = ht->hash_fn(key, ht->num_buckets);
 
 	singly_linked_list_node *node = ht->buckets[bucket]->head;
 	if (!node) return 0;
@@ -64,7 +68,7 @@ hashtable_item* hashtable_find_item(hashtable* ht, char *key)
 //will update value if it already exists
 void hashtable_insert(hashtable *ht, char *key, void *data)
 {
-	int bucket = ht->hash_fn(key) % ht->num_buckets;
+	int bucket = ht->hash_fn(key, ht->num_buckets);
 
 	hashtable_item *item;
 	item = hashtable_find_item(ht, key);
