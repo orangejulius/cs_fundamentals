@@ -58,7 +58,7 @@ hashtable_item* hashtable_find_item(hashtable* ht, char *key)
 
 	do {
 		hashtable_item *item = node->data;
-		if (item->key == key)
+		if (0 == strcmp(item->key, key))
 			return item;
 	} while (node = node->next);
 
