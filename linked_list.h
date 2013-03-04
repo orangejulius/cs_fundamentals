@@ -227,4 +227,22 @@ void reverse_singly_linked_list(singly_linked_list *list)
 	list->head = reverse_singly_linked_list_nodes(list->head);
 }
 
+singly_linked_list *singly_linked_list_join(singly_linked_list *l1, singly_linked_list *l2)
+{
+	singly_linked_list *new_list = init_singly_linked_list();
+	singly_linked_list_node *node;
+
+	node = l1->head;
+	do {
+		insert_tail_singly_linked_list(new_list, node);
+	} while (node = node->next);
+
+	node = l2->head;
+	do {
+		insert_tail_singly_linked_list(new_list, node);
+	} while (node = node->next);
+
+	return new_list;
+}
+
 #endif // LINKED_LIST_H
