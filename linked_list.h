@@ -234,12 +234,12 @@ singly_linked_list *singly_linked_list_join(singly_linked_list *l1, singly_linke
 
 	node = l1->head;
 	do {
-		insert_tail_singly_linked_list(new_list, node);
+		insert_singly_linked_list(new_list, node->data);
 	} while (node = node->next);
 
 	node = l2->head;
 	do {
-		insert_tail_singly_linked_list(new_list, node);
+		insert_singly_linked_list(new_list, node->data);
 	} while (node = node->next);
 
 	return new_list;

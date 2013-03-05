@@ -48,4 +48,7 @@ int main()
 		node = node->next;
 	}
 	assert(i == 4);//check size
+
+	//ensure nodes in original lists are not modified
+	assert(l1->tail->next == 0);
 }
