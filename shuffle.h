@@ -14,4 +14,14 @@ char* array_to_string(int array[], int size)
 	return string;
 }
 
+void shuffle(int array[], int size)
+{
+	for (int i = size; i > 0; i--) {
+		int j = rand() % i;
+		int temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+}
+
 #endif // SHUFFLE_H
