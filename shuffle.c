@@ -1,28 +1,31 @@
 #include <assert.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
+#include "factorial.h"
 #include "hashtable.h"
 #include "shuffle.h"
 
-#define ITERATIONS 100000
-#define ALLOWED_VARIATON 0.02
+#define ITERATIONS 1000000
 
-int main()
+void test_shuffle(int size, void (*shuffle_fn)(int[], int), float allowed_variation)
 {
-	srand(time(NULL));
-	int small_array[] = {1, 2, 3};
-	char *small_array_string = array_to_string(small_array, 3);
-	assert(0 == strcmp("123", small_array_string));
+	int *array = malloc(sizeof(int) * size);
+	for (int i = 0; i < size; i++ ) {
+		array[i] = i;
+	}
+	char *array_string = array_to_string(array, size);
 
 	hashtable* ht = hashtable_init(100, default_hash);
 	singly_linked_list *list = init_singly_linked_list();
 
 	for (int i = 0; i < ITERATIONS; i++) {
-		int *shuffled_array = malloc(sizeof(int) * 3);
-		memcpy(shuffled_array, small_array, sizeof(int) *  3);
+		int *shuffled_array = malloc(sizeof(int) * size);
+		memcpy(shuffled_array, array, sizeof(int) *  size);
 
-		shuffle(shuffled_array, 3);
-		char *stringified = array_to_string(shuffled_array, 3);
+		shuffle_fn(shuffled_array, size);
+		char *stringified = array_to_string(shuffled_array, size);
 		int *count = hashtable_find(ht, stringified);
 		if (count == 0) {
 			count = malloc(sizeof(int));
@@ -34,15 +37,27 @@ int main()
 		hashtable_insert(ht, stringified, count);
 	}
 
-	int expected = ITERATIONS / 6;
-	printf("iteration size %d, expected value for each shuffled output %d\n", ITERATIONS, expected);
+	int expected = ITERATIONS / factorial(size);
+	printf("array size: %d\n", size);
+	printf("iteration size %d\n", ITERATIONS);
+	printf("expected value for each combination %d\n", expected);
 	printf("value\tcount\n");
 	singly_linked_list_node *node = list->head;
 	while (node) {
 		int actual = *(int*)hashtable_find(ht, node->data);
 		double variation = abs(actual - expected) / (float)expected;
 		printf("%s\t%d\t%f\n", (char*)node->data, actual, variation);
-		assert(variation < ALLOWED_VARIATON);
+		assert(variation < allowed_variation);
 		node = node->next;
 	}
+}
+
+int main()
+{
+	srand(time(NULL));
+
+	test_shuffle(3, shuffle, 0.02);
+	test_shuffle(3, incorrect_shuffle, 1);
+
+	test_shuffle(5, shuffle, 0.1);
 }
