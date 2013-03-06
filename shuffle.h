@@ -24,4 +24,14 @@ void shuffle(int array[], int size)
 	}
 }
 
+void incorrect_shuffle(int array[], int size)
+{
+	for (int i = 0; i < size; i++) {
+		int j = rand() % size;
+		int temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+}
+
 #endif // SHUFFLE_H
