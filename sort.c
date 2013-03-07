@@ -21,4 +21,5 @@ void test_sort(void (*sort_fn)(int[], int), int size)
 int main()
 {
 	test_sort(bubble_sort, 10);
+	test_sort(naive_bubble_sort, 10);
 }
