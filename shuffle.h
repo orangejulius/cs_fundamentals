@@ -1,6 +1,7 @@
 #ifndef SHUFFLE_H
 #define SHUFFLE_H
 
+#include <stdio.h>
 #include <stdlib.h>
 
 //only works for single digit integers for now
