@@ -42,4 +42,5 @@ int main()
 
 	benchmark_sort(bubble_sort, 100, 100000);
 	benchmark_sort(naive_bubble_sort, 100, 100000);
+	benchmark_sort(insertion_sort, 100, 100000);
 }

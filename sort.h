@@ -27,4 +27,16 @@ void naive_bubble_sort(int data[], int size)
 	}
 }
 
+void insertion_sort(int data[], int size) {
+	for(int i = 1; i < size; i++) {
+		int temp = data[i];
+		int j = i - 1;
+		while(temp < data[j] && j >= 0) {
+			data[j + 1] = data[j];
+			j = j - 1;
+		}
+		data[j + 1] = temp;
+	}
+}
+
 #endif // SORT_H
