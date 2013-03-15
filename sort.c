@@ -39,6 +39,7 @@ int main()
 {
 	test_sort(bubble_sort, 10);
 	test_sort(naive_bubble_sort, 10);
+	test_sort(bogo_sort, 10);
 
 	benchmark_sort(bubble_sort, 100, 100000);
 	benchmark_sort(naive_bubble_sort, 100, 100000);
