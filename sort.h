@@ -1,6 +1,10 @@
 #ifndef SORT_H
 #define SORT_H
 
+#include <stdbool.h>
+#include "shuffle.h"
+
+
 void bubble_sort(int data[], int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -36,6 +40,21 @@ void insertion_sort(int data[], int size) {
 			j = j - 1;
 		}
 		data[j + 1] = temp;
+	}
+}
+
+bool is_sorted(int data[], int size) {
+	for (int i = 1; i < size; i++) {
+		if (data[i-1] > data[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void bogo_sort(int data[], int size) {
+	while (is_sorted(data, size) == false) {
+		shuffle(data, size);
 	}
 }
 
