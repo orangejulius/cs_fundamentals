@@ -12,13 +12,13 @@ typedef struct hashtable {
 } hashtable;
 
 typedef struct hashtable_item {
-	char* key;
-	void* data;
+	char *key;
+	void *data;
 } hashtable_item;
 
 int default_hash(void* data, int num_buckets) {
 	int h = 0, a = 127;
-	for (char* v = data; *v != 0; v++)
+	for (char *v = data; *v != 0; v++)
 		h = (a * h + *v) % num_buckets;
 
 	return h;
@@ -49,7 +49,7 @@ hashtable *hashtable_init(int num_buckets, int (*hash_fn)(void*, int))
 }
 
 // internal helper functgion to find hashtable_item with given key
-hashtable_item* hashtable_find_item(hashtable* ht, char *key)
+hashtable_item *hashtable_find_item(hashtable *ht, char *key)
 {
 	int bucket = ht->hash_fn(key, ht->num_buckets);
 
@@ -79,7 +79,7 @@ void hashtable_insert(hashtable *ht, char *key, void *data)
 	}
 }
 
-void* hashtable_find(hashtable* ht, char *key)
+void *hashtable_find(hashtable *ht, char *key)
 {
 	hashtable_item *item = hashtable_find_item(ht, key);
 	return item ? item->data : 0;
