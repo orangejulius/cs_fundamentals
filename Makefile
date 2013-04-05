@@ -10,4 +10,14 @@ clean:
 depend:
 	$(CC) $(CFLAGS) -MM $(SRCS) > .depend
 
+test:
+	@$(MAKE)
+	for exe in $(APPS) ; do \
+		./$$exe ; \
+		if [ $$? -ne 0 ]; then \
+			echo "$$exe did not return 0" ; \
+			exit 1 ; \
+		fi \
+	done
+
 include .depend
