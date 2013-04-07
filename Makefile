@@ -5,7 +5,7 @@ APPS=$(patsubst %.c,%,$(SRCS))
 all: ${APPS}
 
 clean:
-	rm ${APPS} *.o
+	rm ${APPS}
 
 depend:
 	$(CC) $(CFLAGS) -MM $(SRCS) > .depend
