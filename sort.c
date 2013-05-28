@@ -47,7 +47,7 @@ int main()
 	test_sort(bogo_sort, 10);
 
 	sort_fn_info sort_fns[] = { { "bubble", bubble_sort },
-		{ "naieve bubble", naive_bubble_sort },
+		{ "naive bubble", naive_bubble_sort },
 		{ "insertion", insertion_sort} };
 	int sort_fn_count = 3;
 
