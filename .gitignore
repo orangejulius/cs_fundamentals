@@ -13,3 +13,28 @@ queue_mt
 *.un~
 *.dSYM
 .depend
+
+# http://www.gnu.org/software/automake
+
+Makefile.in
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+
+# other autotools ignores
+Makefile
+.deps
+config.h
+config.h.in
+config.log
+config.status
+cs_fundamentals*.tar.gz
+test-driver
