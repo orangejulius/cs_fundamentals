@@ -4,7 +4,7 @@
 AC_PREREQ([2.69])
 AC_INIT([cs_fundamentals], [0.0.1], [julian.simioni@gmail.com])
 AC_CONFIG_SRCDIR([.])
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_HEADERS([src/config.h])
 
 # Checks for programs.
 AC_PROG_CC_C99
@@ -22,5 +22,5 @@ AC_CHECK_HEADER_STDBOOL
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([gettimeofday])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile])
 AC_OUTPUT
