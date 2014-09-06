@@ -13,10 +13,14 @@ int main()
 	hashtable_insert(ht, "hello", "world");
 
 	char** strings = malloc(sizeof(char*)*40);
+	int print_result;
 
 	for (int i = 0; i < 40; i++) {
 		strings[i] = malloc(sizeof(char[10]));
-		asprintf(&strings[i], "test%d", i);
+		print_result = asprintf(&strings[i], "test%d", i);
+		if (print_result != 0) {
+			return -1;
+		}
 		hashtable_insert(ht, strings[i], strings[i]);
 	}
 
@@ -32,9 +36,18 @@ int main()
 	assert(strcmp(hashtable_find(ht, "hello"), "world2") == 0);
 
 	char *one, *two, *data;
-	asprintf(&one, "test");
-	asprintf(&two, "test");
-	asprintf(&data, "data");
+	print_result = asprintf(&one, "test");
+	if (print_result != 0) {
+		return -1;
+	}
+	print_result = asprintf(&two, "test");
+	if (print_result != 0) {
+		return -1;
+	}
+	print_result = asprintf(&data, "data");
+	if (print_result != 0) {
+		return -1;
+	}
 	assert(one != two);
 
 	//test hash function returns the same value for identical
@@ -44,7 +57,10 @@ int main()
 
 	//test hash function looks at more than the first 4 bytes
 	char *three;
-	asprintf(&three, "testb");
+	print_result = asprintf(&three, "testb");
+	if (print_result != 0) {
+		return -1;
+	}
 	assert(default_hash(one, 20) != default_hash(three, 20));
 
 	//test inserting and retrieving with indentical strings
