@@ -38,3 +38,7 @@ config.log
 config.status
 cs_fundamentals*.tar.gz
 test-driver
+
+# log output
+*.trs
+*.log
