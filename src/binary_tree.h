@@ -198,7 +198,7 @@ void binary_tree_postorder_print(binary_tree_node *node)
 
 /*
  * Given a pointer to a binary tree node (which will be modified),
- * perform a right rotation of the binary tree.
+ * perform a left rotation of the binary tree.
  */
 void binary_tree_rotate_left(binary_tree_node** root_pointer)
 {
@@ -212,6 +212,10 @@ void binary_tree_rotate_left(binary_tree_node** root_pointer)
 	*root_pointer = root;
 }
 
+/*
+ * Given a pointer to a binary tree node (which will be modified),
+ * perform a right rotation of the binary tree.
+ */
 void binary_tree_rotate_right(binary_tree_node** root_pointer)
 {
 	binary_tree_node* root = *root_pointer;
