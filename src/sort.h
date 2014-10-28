@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include "shuffle.h"
 
-
 void bubble_sort(int data[], int size)
 {
 	for (int i = 0; i < size; i++) {
