@@ -1,5 +1,4 @@
 bin_PROGRAMS=binary_tree \
-       factorial   \
        grid        \
        hashtable   \
        linked_list \
