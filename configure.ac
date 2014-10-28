@@ -22,5 +22,5 @@ AC_CHECK_HEADER_STDBOOL
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([gettimeofday])
 
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile test/Makefile])
 AC_OUTPUT

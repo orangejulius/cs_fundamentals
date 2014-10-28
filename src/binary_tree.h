@@ -1,6 +1,7 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
+#include <stdbool.h>
 #include <stdlib.h>
 
 #include "stack.h"
@@ -193,6 +194,34 @@ void print_tree_postorder(tree_node *node)
 		}
 		prev = node;
 	}
+}
+
+/*
+ * Recursively check the basic property of a binary tree:
+ * the left child's value is less than the parent value,
+ * and the right childs value is greater than or equal to the parent value
+ */
+bool test_tree_correctness(tree_node *node)
+{
+	if (node->left) {
+		if (node->left->data >= node->data) {
+			return false;
+		}
+		if (!test_tree_correctness(node->left)) {
+			return false;
+		}
+	}
+
+	if (node->right) {
+		if (node->right->data < node->data) {
+			return false;
+		}
+
+		if(!test_tree_correctness(node->right)) {
+			return false;
+		}
+	}
+	return true;
 }
 
 #endif // BINARY_TREE_H
