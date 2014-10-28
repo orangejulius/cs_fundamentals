@@ -4,7 +4,6 @@ bin_PROGRAMS=binary_tree \
        linked_list \
        shuffle     \
        sort        \
-       stack       \
-       stack_with_min
+       stack
 
 pkginclude_HEADERS=binary_tree.h  config.h  factorial.h  grid.h  hashtable.h  linked_list.h  shuffle.h  sort.h  sort_test.h  stack.h  stack_with_min.h  swap.h
