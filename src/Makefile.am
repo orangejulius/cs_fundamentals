@@ -1,6 +1,5 @@
 bin_PROGRAMS=binary_tree \
        grid        \
-       hashtable   \
        linked_list \
        shuffle     \
        sort        \
