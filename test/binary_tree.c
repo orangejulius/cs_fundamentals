@@ -1,6 +1,8 @@
+#include <assert.h>
+
 #include "binary_tree.h"
 
-int main()
+void test_binary_tree_insert()
 {
 	//some nice test data, randomized so it works ok with a non-self-balancing tree
 	int data[] = { 5, 9, 7, 2, 4, 8, 3, 1, 0, 6 };
@@ -13,7 +15,10 @@ int main()
 		binary_tree_insert(root, new);
 	}
 
-	if(!binary_tree_test_correctness(root)) {
-		return 1;
-	}
+	assert(binary_tree_test_correctness(root));
+}
+
+int main()
+{
+	test_binary_tree_insert();
 }
