@@ -48,7 +48,7 @@ hashtable *hashtable_init(int num_buckets, int (*hash_fn)(void*, int))
 	return ht;
 }
 
-// internal helper functgion to find hashtable_item with given key
+// internal helper function to find hashtable_item with given key
 hashtable_item *hashtable_find_item(hashtable *ht, char *key)
 {
 	int bucket = ht->hash_fn(key, ht->num_buckets);
