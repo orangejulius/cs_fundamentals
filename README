@@ -1,16 +1,40 @@
-This is a small project that intends to implement basic versions of some core data structures. Basically the point is to cover common interview questions.
+This is a small project that intends to implement basic versions of some core data structures.
+Basically the point is to cover common interview questions.
 
-Here's what I intend to cover:
+All the code is written in C: it's one of my favorite languages: beautiful, simple and perfect for
+low level work.
 
+Unit-like tests are written in many cases, but are by no means complete.
+
+For an added challenge GNU Autotools are used to build everything. Part of me enjoys the pain of
+using such a quintessential UNIX tool, another part would rather I just used CMake and focus on
+writing real code.
+
+Here's what I cover so far:
 * Linked lists
- - Double vs single
- - Circular vs linear
+ - linear (non-circular), singly linked lists
  - basic operations: insert into, delete from, reverse
+* stacks
 * Binary trees
- - basic operations: inserting, deleting
+ - basic operations: leaf inserting
  - traversing: inorder, preorder, postorder (recursive and stack-based)
- - balancing
 * Hash tables
 * Sorting algorithms
+ - bubble sort
  - insertion sort
+ - bogo sort
+
+And here's an incomplete list of what I intend to cover in the future:
+* linked lists
+  - doubly linked lists
+  - circular linked lists
+* Binary trees
+ - deletion
+ - root insertion
+ - rotation
+ - balancing
+* other tree structures
+  - tries
+  - B-trees
+* sorting algorithms
  - quicksort
