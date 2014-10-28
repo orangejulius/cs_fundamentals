@@ -9,6 +9,16 @@
 
 #define ITERATIONS 1000000
 
+/*
+ * test a shuffle algorithm by shuffling an array many times and counting the
+ * distribution of all the possible results (stored in a hash table)
+ * this is obviously slow for anything but an extremely short array
+ *
+ * for each possible shuffled combination, the following is printed:
+ * the combination itself,
+ * the variation of the actual result from a perfectly even shuffle
+ *
+ */
 void test_shuffle(int size, void (*shuffle_fn)(int[], int), float allowed_variation)
 {
 	int *array = malloc(sizeof(int) * size);
@@ -41,7 +51,7 @@ void test_shuffle(int size, void (*shuffle_fn)(int[], int), float allowed_variat
 	printf("array size: %d\n", size);
 	printf("iteration size %d\n", ITERATIONS);
 	printf("expected value for each combination %d\n", expected);
-	printf("value\tcount\n");
+	printf("value\tcount\tvariation\n");
 	singly_linked_list_node *node = list->head;
 	while (node) {
 		int actual = *(int*)hashtable_find(ht, node->data);
@@ -56,8 +66,11 @@ int main()
 {
 	srand(time(NULL));
 
+	printf("testing distribution of Fischer-Yates shuffle with 3 elements\n");
 	test_shuffle(3, shuffle, 0.02);
+	printf("\ntesting distribution of an incorrect shuffle algirithm\n");
 	test_shuffle(3, incorrect_shuffle, 1);
 
+	printf("\ntesting distribution of Fischer-Yates shuffle with 5 elements\n");
 	test_shuffle(5, shuffle, 0.1);
 }
