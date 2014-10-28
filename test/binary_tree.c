@@ -36,6 +36,8 @@ void test_binary_tree_rotate_left()
 	assert(root->left->data == 'a');
 	assert(root->right->data == 's');
 	assert(root->left->right->data == 'c');
+
+	assert(binary_tree_test_correctness(root));
 }
 
 void test_binary_tree_rotate_right()
@@ -55,6 +57,8 @@ void test_binary_tree_rotate_right()
 	assert(root->right->data == 'e');
 	assert(root->right->left->data == 'c');
 	assert(root->right->right->data == 's');
+
+	assert(binary_tree_test_correctness(root));
 }
 
 int main()
