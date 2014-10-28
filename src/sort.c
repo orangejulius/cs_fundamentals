@@ -5,7 +5,7 @@ int main()
 	sort_fn_info sort_fns[] = { { "bubble", bubble_sort },
 		{ "naive bubble", naive_bubble_sort },
 		{ "insertion", insertion_sort} };
-	int sort_fn_count = 3;
+	int sort_fn_count = sizeof(sort_fns) / sizeof(sort_fns[0]);
 
 	int sort_upto = 1000;
 	int step = 100;
