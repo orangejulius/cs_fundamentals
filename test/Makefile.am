@@ -1,4 +1,5 @@
 bin_PROGRAMS=binary_tree \
-             factorial
+             factorial \
+             sort
 
 TESTS=$(bin_PROGRAMS)
