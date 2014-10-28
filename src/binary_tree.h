@@ -212,6 +212,18 @@ void binary_tree_rotate_left(binary_tree_node** root_pointer)
 	*root_pointer = root;
 }
 
+void binary_tree_rotate_right(binary_tree_node** root_pointer)
+{
+	binary_tree_node* root = *root_pointer;
+
+	binary_tree_node* temp = root->left;
+	root->left = temp->right;
+	temp->right = root;
+	root = temp;
+
+	*root_pointer = root;
+}
+
 /*
  * Recursively check the basic property of a binary tree:
  * the left child's value is less than the parent value,
