@@ -224,5 +224,4 @@ bool test_tree_correctness(tree_node *node)
 	return true;
 }
 
-
 #endif // BINARY_TREE_H
