@@ -1,7 +1,6 @@
 #include <assert.h>
 #include <sys/time.h>
 
-#include "shuffle.h"
 #include "sort.h"
 
 void test_sort(void (*sort_fn)(int[], int), int size)
