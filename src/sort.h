@@ -38,6 +38,23 @@ void insertion_sort(int data[], int size) {
 	}
 }
 
+int partition(int data[], int l, int r)
+{
+	int i = l - 1;
+	int j = r;
+	int v = data[r];
+	while(1) {
+		while (data[++i] < v) {};
+		while (v < data[--j]) {
+			if (j == l) break;
+		}
+		if (i >= j) break;
+		swap(data, i, j);
+	}
+	swap(data, i, r);
+	return i;
+}
+
 bool is_sorted(int data[], int size) {
 	for (int i = 1; i < size; i++) {
 		if (data[i-1] > data[i]) {
