@@ -19,7 +19,7 @@ int main()
 	printf("\n");
 	for (int i = 0; i < sort_upto; i+=step) {
 		printf("%d\t", i);
-		for (int j = 0; j < 3; j++) {
+		for (int j = 0; j < sort_fn_count; j++) {
 			double time = benchmark_sort(sort_fns[j].sort_fn, i, iterations);
 			printf("%f\t", time);
 		}
