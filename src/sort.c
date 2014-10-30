@@ -8,9 +8,9 @@ int main()
 		{ "quicksort", quicksort} };
 	int sort_fn_count = sizeof(sort_fns) / sizeof(sort_fns[0]);
 
-	int sort_upto = 1000;
-	int step = 100;
-	int iterations = 1000;
+	int sort_upto = 10000;
+	int step = 1000;
+	int iterations = 10;
 
 	printf("benchmarking sort algorithms with %d iterations\n\n", iterations);
 	printf("count\t");
