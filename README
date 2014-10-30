@@ -22,6 +22,7 @@ Here's what I cover so far:
 * Sorting algorithms
  - bubble sort
  - insertion sort
+ - quicksort
  - bogo sort
 
 And here's an incomplete list of what I intend to cover in the future:
@@ -36,5 +37,3 @@ And here's an incomplete list of what I intend to cover in the future:
 * other tree structures
   - tries
   - B-trees
-* sorting algorithms
- - quicksort
