@@ -4,7 +4,8 @@ int main()
 {
 	sort_fn_info sort_fns[] = { { "bubble    ", bubble_sort },
 		{ "naive bubble", naive_bubble_sort },
-		{ "insertion", insertion_sort} };
+		{ "insertion", insertion_sort},
+		{ "quicksort", quicksort} };
 	int sort_fn_count = sizeof(sort_fns) / sizeof(sort_fns[0]);
 
 	int sort_upto = 1000;

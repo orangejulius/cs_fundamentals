@@ -29,5 +29,6 @@ int main()
 	test_sort(bubble_sort, 10);
 	test_sort(naive_bubble_sort, 10);
 	test_sort(insertion_sort, 10);
+	test_sort(quicksort, 10);
 	test_sort(bogo_sort, 10);
 }

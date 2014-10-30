@@ -55,6 +55,21 @@ int partition(int data[], int l, int r)
 	return i;
 }
 
+void quicksort_internal(int data[], int l, int r)
+{
+	if (r <= l) {
+		return;
+	}
+	int i = partition(data, l, r);
+	quicksort_internal(data, l, i - 1);
+	quicksort_internal(data, i + 1, r);
+}
+
+void quicksort(int data[], int size)
+{
+	quicksort_internal(data, 0, size - 1);
+}
+
 bool is_sorted(int data[], int size) {
 	for (int i = 1; i < size; i++) {
 		if (data[i-1] > data[i]) {
